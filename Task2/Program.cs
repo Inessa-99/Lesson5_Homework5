@@ -35,7 +35,6 @@ int sumN = 0;
 for (int i=1; i<arr.Length; i+= 2)
 {
     sumN += arr[i];
-    return sumN;
 }
 
 Console.WriteLine(sumN);
