@@ -28,24 +28,22 @@ int elementsCount = int.Parse(Console.ReadLine());
 int[] arr = GetArray(elementsCount);
 PrintArray(arr);
 
-int numMin = 0;
-int numMax = 0;
+int minInd = 0;
+int maxInd = 0;
 int res = 0;
 
-for (int i=1; i<elementsCount; i++)
+for (int i = 1; i < elementsCount; i++)
 {
-    if (arr[i]< arr[i-1])
+    while (arr[maxInd] < arr[i])
     {
-        numMin = arr[i];
-        numMax = arr[i-1];
+        maxInd = i;
     }
-    else
+    while (arr[minInd] > arr[i])
     {
-        numMin = arr[i-1];
-        numMax = arr[i];
+        minInd = i;
     }
-    res = numMax - numMin;
-    return res;
 }
 
+res = arr[maxInd] - arr[minInd];
 Console.WriteLine(res);
+
